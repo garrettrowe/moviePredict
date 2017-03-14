@@ -35,7 +35,7 @@ mpredict = []
 
 
 
-inpredict = [int(self.request.GET.get('GENDER')),int(self.request.GET.get('SENIORCITIZEN')),int(self.request.GET.get('DEPENDENTS')),int(self.request.GET.get('TENURE')),int(self.request.GET.get('PAPERLESSBILLING')),int(self.request.GET.get('PAYMENTMETHOD')),self.request.GET.get('MONTHLYCHARGES')]
+inpredict = [int(request.args.get('GENDER')),int(request.args.get('SENIORCITIZEN')),int(request.args.get('DEPENDENTS')),int(request.args.get('TENURE')),int(request.args.get('PAPERLESSBILLING')),int(request.args.get('PAYMENTMETHOD')),request.args.get('MONTHLYCHARGES')]
 inpredict = numpy.array(inpredict).reshape(1, (len(inpredict)))	
 mtitle = movie.predict(inpredict)[0]
 mpredict.append({'Movie' : mtitle})
