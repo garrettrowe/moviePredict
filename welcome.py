@@ -17,13 +17,19 @@ CORS(app)
 
 conn = swiftclient.Connection(key="""ApX1Y]C*#tvNn95j""",authurl='https://identity.open.softlayer.com/v3',auth_version='3',
 os_options={"project_id": 'c103edd6ab074e8f967770017c08c779',"user_id": '70b92ab4ed014fe0b3564f31a53b6522',"region_name": 'dallas'})
-obj_tuple = conn.get_object("Analytics", 'movie.gz')
+obj_tuple = conn.get_object("Analytics", 'movie_c.gz')
 
-with open('movie.gz', 'w') as dl_model:
+with open('movie_c.gz', 'w') as dl_model:
     dl_model.write(obj_tuple[1])
 
-movie = joblib.load('movie.gz')
+movie = joblib.load('movie_c.gz')
 
+obj_tuple = conn.get_object("Analytics", 'movie_d.gz')
+
+with open('movie_d.gz', 'w') as dl_model:
+    dl_model.write(obj_tuple[1])
+
+d = joblib.load('movie_d.gz')
 
 mpredict = []
 
