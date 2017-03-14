@@ -1,9 +1,11 @@
 applications:
 - path: .
-  memory: 128M
+  memory: 1800M
   instances: 1
   domain: mybluemix.net
-  name: moviePredict
-  host: moviePredict
-  disk_quota: 1024M
+  name: solarPredict
+  host: solarpredict
+  disk_quota: 2048M
+  services:
+  - availability-monitoring-auto
   buildpack: python_buildpack
