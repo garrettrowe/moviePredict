@@ -45,7 +45,9 @@ def parse_request():
 
 		inpredict = [int(request.args.get('GENDER')),int(request.args.get('SENIORCITIZEN')),int(request.args.get('DEPENDENTS')),int(request.args.get('TENURE')),int(request.args.get('PAPERLESSBILLING')),int(request.args.get('PAYMENTMETHOD')),request.args.get('MONTHLYCHARGES')]
 		inpredict = numpy.array(inpredict).reshape(1, (len(inpredict)))	
-		mtitle = movie.predict(inpredict)[0]
+		
+		mtitle = d["title"].inverse_transform(int(movie.predict(inpredict)[0])).encode('ascii')
+		
 		mpredict.append({'Movie' : mtitle})
 		return jsonify(results=mpredict)
 	except:
