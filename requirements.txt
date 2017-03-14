@@ -1,1 +1,8 @@
 Flask==0.10.1
+python-swiftclient
+python-keystoneclient
+sklearn
+numpy
+scipy
+python-dateutil
+flask-cors
