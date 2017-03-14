@@ -1,6 +1,6 @@
 applications:
 - path: .
-  memory: 1800M
+  memory: 256M
   instances: 1
   domain: mybluemix.net
   name: moviePredict
