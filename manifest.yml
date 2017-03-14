@@ -3,8 +3,8 @@ applications:
   memory: 1800M
   instances: 1
   domain: mybluemix.net
-  name: solarPredict
-  host: solarpredict
+  name: moviePredict
+  host: moviepredict
   disk_quota: 2048M
   services:
   - availability-monitoring-auto
