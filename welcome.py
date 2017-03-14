@@ -31,14 +31,7 @@ with open('movie_d.gz', 'w') as dl_model:
 
 d = joblib.load('movie_d.gz')
 
-mpredict = []
 
-
-
-inpredict = [int(request.args.get('GENDER')),int(request.args.get('SENIORCITIZEN')),int(request.args.get('DEPENDENTS')),int(request.args.get('TENURE')),int(request.args.get('PAPERLESSBILLING')),int(request.args.get('PAYMENTMETHOD')),request.args.get('MONTHLYCHARGES')]
-inpredict = numpy.array(inpredict).reshape(1, (len(inpredict)))	
-mtitle = movie.predict(inpredict)[0]
-mpredict.append({'Movie' : mtitle})
 
 @app.route('/')
 def notice():
@@ -48,6 +41,12 @@ def notice():
 def parse_request():
 	try:
 		global mpredict
+		mpredict = []
+
+		inpredict = [int(request.args.get('GENDER')),int(request.args.get('SENIORCITIZEN')),int(request.args.get('DEPENDENTS')),int(request.args.get('TENURE')),int(request.args.get('PAPERLESSBILLING')),int(request.args.get('PAYMENTMETHOD')),request.args.get('MONTHLYCHARGES')]
+		inpredict = numpy.array(inpredict).reshape(1, (len(inpredict)))	
+		mtitle = movie.predict(inpredict)[0]
+		mpredict.append({'Movie' : mtitle})
 		return jsonify(results=mpredict)
 	except:
 		return jsonify(ecode=sys.exc_info()[0])
