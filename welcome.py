@@ -43,7 +43,7 @@ def parse_request():
 		global mpredict
 		mpredict = []
 
-		inpredict = [d["GENDER"].transform(int(request.args.get('GENDER'))),int(request.args.get('SENIORCITIZEN')),int(request.args.get('DEPENDENTS')),int(request.args.get('TENURE')),int(request.args.get('PAPERLESSBILLING')),d["PAYMENTMETHOD"].transform(int(request.args.get('PAYMENTMETHOD'))),request.args.get('MONTHLYCHARGES')]
+		inpredict = [d["GENDER"].transform(request.args.get('GENDER')),int(request.args.get('SENIORCITIZEN')),int(request.args.get('DEPENDENTS')),int(request.args.get('TENURE')),int(request.args.get('PAPERLESSBILLING')),d["PAYMENTMETHOD"].transform(request.args.get('PAYMENTMETHOD')),request.args.get('MONTHLYCHARGES')]
 		inpredict = numpy.array(inpredict).reshape(1, (len(inpredict)))	
 		
 		mtitle = d["title"].inverse_transform(int(movie.predict(inpredict)[0])).encode('ascii')
