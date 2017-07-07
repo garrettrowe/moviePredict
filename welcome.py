@@ -51,7 +51,7 @@ def parse_request():
 		mpredict.append({'Movie' : mtitle})
 		return jsonify(results=mpredict)
 	except:
-		return jsonify(ecode=sys.exc_info()[0])
+		return jsonify(ecode="Error")
 
 
 port = os.getenv('PORT', '5000')
