@@ -1,7 +1,7 @@
 Flask==0.10.1
 python-swiftclient
 python-keystoneclient
-sklearn==0.18.2
+sklearn
 numpy
 scipy
 python-dateutil
